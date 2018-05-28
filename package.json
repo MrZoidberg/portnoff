@@ -1,0 +1,39 @@
+{
+  "name": "Portnof",
+  "version": "1.0.0",
+  "description": "Portnof",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "authors": [
+    "Andriyanov Dmitriy <dimand81179@gmail.com>"
+  ],
+  "keywords": [
+    "portnof"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.7.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^2.3.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-watch": "^4.1.1",
+    "jquery": "3.*",
+    "gulp-changed": "^1.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-size": "^1.2.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-less": "^4.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-uglify": "^2.0.0",
+    "normalize-sass": "^1.0.0"
+  }
+}
