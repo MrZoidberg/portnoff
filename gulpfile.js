@@ -92,7 +92,7 @@ gulp.task('style:build', function () {
 });
 
 gulp.task('less:build', function () {
-    gulp.src(path.src.style)
+    gulp.src(path.src.less)
         .pipe(plumber({
             errorHandler: function (error) {
                 console.log(error.message);
@@ -104,7 +104,7 @@ gulp.task('less:build', function () {
         .pipe(prefixer())
         .pipe(cssmin())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.build.less))
         .pipe(reload({stream: true}));
 });
 

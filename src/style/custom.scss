@@ -48,3 +48,11 @@ body > iframe {
 	background-color: #fff;
 	padding: 2px;
 }
+/* fix for content columns (pg-page-wrapper > pg-item) */
+.pg-page-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	> .pg-item {
+		display: block;
+	}
+}
