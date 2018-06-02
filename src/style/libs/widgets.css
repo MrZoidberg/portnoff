@@ -840,11 +840,11 @@ div.pexeto-dialog{
 
 @font-face {
 	font-family: 'PexPanel';
-	src:url('fonts/PexPanel.eot');
-	src:url('fonts/PexPanel.eot?#iefix') format('embedded-opentype'),
-		url('fonts/PexPanel.svg#PexPanel') format('svg'),
-		url('fonts/PexPanel.woff') format('woff'),
-		url('fonts/PexPanel.ttf') format('truetype');
+	src:url('../fonts/PexPanel.eot');
+	src:url('../fonts/PexPanel.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/PexPanel.svg#PexPanel') format('svg'),
+		url('../fonts/PexPanel.woff') format('woff'),
+		url('../fonts/PexPanel.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

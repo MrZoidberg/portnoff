@@ -509,7 +509,8 @@ var PEXETO = PEXETO || {};
 				video,
 				$video,
 				sectionType = this.getSectionTypeByElement($section),
-				self = this;
+				self = this,
+				autoplayRefused = false;
 
 			if(sectionType=='slider'){
 				this.animateCaption(index, 0);
@@ -531,11 +532,47 @@ var PEXETO = PEXETO || {};
 					video.addEventListener("waiting", function(){
 						self.showLoading();
 					});
-
-					$video.get(0).play();
+					
+					var promise = $video.get(0).play();
+					if (promise !== undefined) {
+						promise.then(function(){
+							//video started, remove any existing play buttons
+							$section.find('.fs-video-play').remove();
+						}).catch(function(){
+							autoplayRefused = true;
+							//browser refused to autoplay video, display a play button
+							self.addBgVideoPlayButton(video, $section);
+						});
+					}
 				}
 			}
 
+		},
+
+		addBgVideoPlayButton : function(video, $section){
+			var btnClass = 'fs-video-play',
+				$sectionContent = $section.find('.section-content:first'),
+				customColor = $sectionContent.data('titlecolor'),
+				$playBtn, $triangle;
+
+			//remove any existing play buttons
+			$sectionContent.find('.'+btnClass).remove();
+
+			$triangle =  $('<div />', {'class': 'fs-video-play-triangle'});
+
+			$playBtn = $('<div />', {'class': btnClass})
+				.append($triangle)
+				.on('click', function(){
+					video.play();
+					$(this).css({visibility:'hidden'});
+				});
+			
+			if(customColor){
+				$triangle.css({borderLeftColor:'#'+customColor});
+				$playBtn.css({borderColor: '#'+customColor});
+			}
+
+			$sectionContent.append($playBtn);
 		},
 
 		doOnLeave : function(index, nextIndex, direction){

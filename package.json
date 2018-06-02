@@ -18,16 +18,19 @@
   "scripts": {
     "build": "gulp build"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.7.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^2.3.0",
     "gulp-rigger": "^0.5.8",
-    "gulp-sourcemaps": "^1.5.0",
     "gulp-watch": "^4.1.1",
     "jquery": "3.*",
+    "jquery-migrate": "^3.0.1"
+  },
+  "devDependencies": {
     "gulp-changed": "^1.2.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sourcemaps": "^1.5.0",
     "gulp-notify": "^2.2.0",
     "gulp-size": "^1.2.1",
     "gulp-plumber": "^1.1.0",
