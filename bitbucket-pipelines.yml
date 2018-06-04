@@ -8,7 +8,7 @@ pipelines:
   default:
     - step:
         image: node:8.11.2
-        name: Deploy
+        name: Build
         caches:
           - node
         script: # Modify the commands below to build your repository.
