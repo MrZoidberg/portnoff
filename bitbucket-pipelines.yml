@@ -24,4 +24,5 @@ pipelines:
         # trigger: manual  # uncomment to have a manual step
         image: atlassian/pipelines-awscli
         script:
+          - cd build
           - aws s3 sync --exclude ".vscode/*" --exclude ".git/*" --delete . s3://portnof.com.ua
