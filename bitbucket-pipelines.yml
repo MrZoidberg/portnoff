@@ -3,16 +3,19 @@
 # Only use spaces to indent your .yml configuration.
 # -----
 # You can specify a custom docker image from Docker Hub as your build environment.
-image: node:6.9.4
+image: node:8.11.2
 
 pipelines:
   default:
     - step:
+        name: Deploy
         caches:
           - node
         script: # Modify the commands below to build your repository.
           - npm install
+          - npm install -g gulp
           - gulp build
+          - cd build
     - step:
         # set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
         name: Deploy to S3
