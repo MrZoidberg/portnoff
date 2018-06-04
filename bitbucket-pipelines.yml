@@ -17,14 +17,12 @@ pipelines:
           - gulp build   
         artifacts:
           - build/**
-  branches:
-    master:
-      - step:
-          # set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
-          name: Deploy to S3
-          deployment: staging   # set to test, staging or production
-          # trigger: manual  # uncomment to have a manual step
-          image: atlassian/pipelines-awscli
-          script:
-            - cd build && ls
-            - aws s3 sync --exclude ".vscode/*" --exclude ".git/*" --delete . s3://portnof.com.ua
+    - step:
+        # set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
+        name: Deploy to S3
+        deployment: staging   # set to test, staging or production
+        # trigger: manual  # uncomment to have a manual step
+        image: atlassian/pipelines-awscli
+        script:
+          - cd build && ls
+          - aws s3 sync --exclude ".vscode/*" --exclude ".git/*" --delete . s3://portnof.com.ua
