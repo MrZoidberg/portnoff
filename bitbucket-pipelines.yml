@@ -14,7 +14,9 @@ pipelines:
         script: # Modify the commands below to build your repository.
           - npm install
           - npm install -g gulp
-          - gulp build          
+          - gulp build   
+        artifacts:
+          - build/**
     - step:
         # set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as environment variables
         name: Deploy to S3
@@ -22,5 +24,4 @@ pipelines:
         # trigger: manual  # uncomment to have a manual step
         image: atlassian/pipelines-awscli
         script:
-          - cd build
           - aws s3 sync --exclude ".vscode/*" --exclude ".git/*" --delete . s3://portnof.com.ua
