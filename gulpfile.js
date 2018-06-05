@@ -173,7 +173,7 @@ gulp.task("favicon:build", function () {
         logging: true,
         html: "index.html",
         pipeHTML: true,
-        replace: true
+        replace: false
     }))
     .on("error", gutil.log)
     .pipe(gulp.dest(path.build.favicon))
