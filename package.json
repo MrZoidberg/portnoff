@@ -8,19 +8,20 @@
     "url": ""
   },
   "authors": [
-    "Andriyanov Dmitriy <dimand81179@gmail.com>"
+    "Andriyanov Dmitriy <dimand81179@gmail.com>",
+    "Mikhail Merkulov <mihail.merkulov@gmail.com>"
   ],
   "keywords": [
     "portnof"
   ],
   "license": "ISC",
-  "homepage": "",
+  "homepage": "https://portnof.com.ua",
   "scripts": {
     "build": "gulp build"
   },
   "dependencies": {
     "browser-sync": "^2.7.5",
-    "gulp": "^3.9.1",
+    "favicons": "^5.1.1",
     "gulp-autoprefixer": "^2.3.0",
     "gulp-rigger": "^0.5.8",
     "gulp-watch": "^4.1.1",
@@ -28,14 +29,17 @@
     "jquery-migrate": "^3.0.1"
   },
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-changed": "^1.2.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-sourcemaps": "^1.5.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-size": "^1.2.1",
-    "gulp-plumber": "^1.1.0",
+    "gulp-gtag": "^1.0.1",
     "gulp-less": "^3.5.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-robots": "^2.0.4",
     "gulp-sass": "^4.0.1",
+    "gulp-size": "^1.2.1",
+    "gulp-sourcemaps": "^1.5.0",
     "gulp-uglify": "^2.0.0",
     "normalize-sass": "^1.0.0"
   }

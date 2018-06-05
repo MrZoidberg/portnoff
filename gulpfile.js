@@ -13,28 +13,37 @@ var gulp = require('gulp'),
     reload = browserSync.reload,
     plumber = require('gulp-plumber'),
     size = require('gulp-size'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    favicons = require("favicons").stream,
+    gutil = require("gulp-util"),
+    robots = require('gulp-robots'),
+    gtag = require('gulp-gtag');
 
 var path = {
     build: {
         html: 'build/',
+        index: 'build/index.html',
         style: 'build/css/',
         css: 'build/css/',
         less: 'build/css/',
         fonts: 'build/fonts/',
         img: 'build/images/',
         js: 'build/js/',
-        htaccess: 'build/'
+        htaccess: 'build/',
+        favicon: 'build/',
+        robots: 'build/'
     },
     src: {
         html: 'src/*.html',
+        index: 'src/index.html',
         style: 'src/style/custom.scss',
         css: 'src/style/libs/*.css',
         less: 'src/style/less/*.less',
         fonts: 'src/fonts/*.*',
         img: 'src/images/**',
         js: 'src/js/*.js',
-        htaccess: 'src/.htaccess'
+        htaccess: 'src/.htaccess',
+        favicon: 'src/logo.png'
     },
     watch: {
         html: 'src/**/*.html',
@@ -44,7 +53,8 @@ var path = {
         fonts: 'src/fonts/*.*',
         img: 'src/images/**',
         js: 'src/js/**/*.js',
-        htaccess: 'src/.htaccess'
+        htaccess: 'src/.htaccess',
+        favicon: 'src/logo.png'
     }
 };
 
@@ -147,6 +157,36 @@ gulp.task('htaccess:build', function () {
         .pipe(gulp.dest(path.build.htaccess))
 });
 
+gulp.task("favicon:build", function () {
+    gulp.src(path.src.favicon).pipe(favicons({
+        appName: "Portnof",
+        appDescription: "Ателье Portnof",
+        developerName: "Mikhail Merkulov",
+        developerURL: "http://merkulov.me/",
+        background: "#020307",
+        path: "/",
+        url: "https://portnof.com.ua/",
+        display: "standalone",
+        orientation: "any",
+        start_url: "/",
+        version: 1.0,
+        logging: true,
+        html: "index.html",
+        pipeHTML: true,
+        replace: true
+    }))
+    .on("error", gutil.log)
+    .pipe(gulp.dest(path.build.favicon))
+});
+
+gulp.task('robots:build', function () {
+    gulp.src(path.src.index)
+        .pipe(robots({
+            useragent: '*'
+        }))
+        .pipe(gulp.dest(path.build.robots));
+});
+
 gulp.task('build', [
     'html:build',
     'style:build',
@@ -155,7 +195,9 @@ gulp.task('build', [
     'fonts:build',
     'image:build',
     'js:build',
-    'htaccess:build'
+    'htaccess:build',
+    'favicon:build',
+    'robots:build'
 ]);
 
 
@@ -183,6 +225,9 @@ gulp.task('watch', function () {
     });
     watch([path.watch.htaccess], function (event, cb) {
         gulp.start('htaccess:build');
+    });
+    watch([path.watch.favicon], function (event, cb) {
+        gulp.start('favicon:build');
     });
 });
 
