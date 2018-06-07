@@ -164,19 +164,18 @@ gulp.task("favicon:build", function () {
         developerName: "Mikhail Merkulov",
         developerURL: "http://merkulov.me/",
         background: "#020307",
-        path: "/",
         url: "https://portnof.com.ua/",
         display: "standalone",
         orientation: "any",
         start_url: "/",
         version: 1.0,
         logging: true,
-        html: "index.html",
-        pipeHTML: true,
+        html: "views/favicon.html",
+        pipeHTML: false,
         replace: false
     }))
     .on("error", gutil.log)
-    .pipe(gulp.dest(path.build.favicon))
+    .pipe(gulp.dest("build"))
 });
 
 gulp.task('robots:build', function () {
@@ -188,6 +187,7 @@ gulp.task('robots:build', function () {
 });
 
 gulp.task('build', [
+    'favicon:build',
     'html:build',
     'style:build',
     'css:build',
@@ -196,7 +196,6 @@ gulp.task('build', [
     'image:build',
     'js:build',
     'htaccess:build',
-    'favicon:build',
     'robots:build'
 ]);
 
