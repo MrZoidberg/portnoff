@@ -272,8 +272,8 @@ body {
 
 #logo{
 	margin: 20px auto;
-	width:120px;
-	height:80px;
+	width:132px;
+	height:100px;
 	display:block;
 	background-image:url(../images/logo.png);
 	background-repeat: no-repeat;
@@ -282,8 +282,8 @@ body {
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3, '/', 2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5){
 #logo{
-	background: url(../images/logo2x.png) no-repeat scroll 0 0 transparent;
-	background-size: 120px 80px;
+	background: url(../images/logo.png) no-repeat scroll 0 0 transparent;
+	background-size: 132px 100px;
 
 }
 }
@@ -947,10 +947,10 @@ display:none;
 }
 
 #logo {
-	width: 60px;
-	height: 45px;
-	background-size: 93px 63px;
-	background-position-x: -16px;
+	width: 66px;
+	height: 50px;
+	background-size: 66px 50px;
+	/*background-position-x: -16px;*/
 	margin-top: 37px;
 
 }
