@@ -12,9 +12,17 @@ img.emoji {
     background: none !important;
     padding: 0 !important;
 }
+.fixed-header{
+    .header-wrapper {
+        padding-top: 106px !important;
+    }
+    &.fixed-header-scroll .header-wrapper {
+        padding-top: 64px !important;
+    }
+}
 .large-header .page-title-wrapper {
-    min-height: 450px;
-    height: 450px;
+    min-height: 420px;
+    height: 420px;
 }
 .page-id-1989 #header, .page-id-1989 #footer {
     display: none;
@@ -48,6 +56,9 @@ body > iframe {
     background-color: #fff;
     padding: 2px;
 }
+.fixed-header-scroll #logo-container {
+    margin-top: 0 !important;
+}
 /* fix for content columns (pg-page-wrapper > pg-item) */
 .pg-page-wrapper {
     display: flex;
@@ -63,6 +74,11 @@ body > iframe {
 /* contact us landing section */
 .contact-us {
     position: relative;
+    .contacts {
+        font-size: 18px;
+        color: #fff;
+        max-width: 400px;
+    }
     &:after {
         content: '';
         position: absolute;
@@ -97,5 +113,69 @@ body > iframe {
         height: 100vh !important;
         border: 0;
         z-index: 1;
+    }
+    h2,
+    h3{
+        margin: 0;
+        padding-bottom: 5px !important;
+        font-size: 40px;
+        color: #fff;
+    }
+    h3 {
+        font-size: 28px;
+    }
+    .schedule {
+        margin: 0 0 15px;
+        overflow: hidden;
+        dt {
+            clear: left;
+            float: left;
+            min-width: 70px;
+            font-weight: normal;
+        }
+        dd {
+            margin: 0;
+            padding-left: 15px;
+            display: block;
+            overflow: hidden;
+        }
+    }
+    address {
+        display: block;
+        margin: 0 0 15px;
+        span {
+            display: block;
+        }
+    }
+    .tel {
+        padding-bottom: 10px;
+    }
+    a {
+        color: #fff;
+        transition: color .3s ease;
+        position: relative;
+        &:after {
+            transition: all .2s ease;
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            overflow: hidden;
+            margin-left: 0;
+            width: 0;
+            height: 0;
+            background: #fff;
+            content: '';
+            text-indent: -999em;
+            border-radius: 7px;
+        }
+        &:hover {
+            color: rgba(255,255,255,.8);
+            &:after {
+                height: 2px;
+                width: 40px;
+                margin-left: -20px;
+                margin-top: -2px;
+            }
+        }
     }
 }
