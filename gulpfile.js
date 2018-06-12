@@ -17,7 +17,9 @@ var gulp = require('gulp'),
     favicons = require("favicons").stream,
     gutil = require("gulp-util"),
     robots = require('gulp-robots'),
-    gtag = require('gulp-gtag');
+    gtag = require('gulp-gtag'),
+    minify = require('gulp-minify'),
+    imagemin = require('gulp-imagemin');
 
 var path = {
     build: {
@@ -127,6 +129,7 @@ gulp.task('fonts:build', function () {
 gulp.task('image:build', function () {
     gulp.src(path.src.img)
         .pipe(changed(path.build.img))
+        .pipe(imagemin())
         .pipe(gulp.dest(path.build.img))
         .pipe(size({title: 'img'}))
         .pipe(reload({stream: true}));
@@ -137,6 +140,13 @@ gulp.task('js:build', function () {
         .pipe(rigger())
         .pipe(sourcemaps.init())
         .pipe(uglify())
+        .pipe(minify({
+            ext:{
+                min:'.js'
+            },
+            exclude: ['tasks'],
+            ignoreFiles: ['.combo.js', '-min.js']
+        }))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
