@@ -30,6 +30,7 @@ var path = {
         less: 'build/css/',
         fonts: 'build/fonts/',
         img: 'build/images/',
+        json: 'build/json/',
         js: 'build/js/',
         htaccess: 'build/',
         favicon: 'build/',
@@ -43,6 +44,7 @@ var path = {
         less: 'src/style/less/*.less',
         fonts: 'src/fonts/*.*',
         img: 'src/images/**',
+        json: 'src/json/*.json',
         js: 'src/js/*.js',
         htaccess: 'src/.htaccess',
         favicon: 'src/logo.png'
@@ -54,6 +56,7 @@ var path = {
         less: 'src/style/less/*.less',
         fonts: 'src/fonts/*.*',
         img: 'src/images/**',
+        json: 'src/json/*.json',
         js: 'src/js/**/*.js',
         htaccess: 'src/.htaccess',
         favicon: 'src/logo.png'
@@ -135,6 +138,12 @@ gulp.task('image:build', function () {
         .pipe(reload({stream: true}));
 });
 
+gulp.task('json:build', function () {
+    gulp.src(path.src.json)
+        .pipe(gulp.dest(path.build.json))
+        .pipe(reload({stream: true}));
+});
+
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
         .pipe(rigger())
@@ -204,6 +213,7 @@ gulp.task('build', [
     'less:build',
     'fonts:build',
     'image:build',
+    'json:build',
     'js:build',
     'htaccess:build',
     'robots:build'
@@ -228,6 +238,9 @@ gulp.task('watch', function () {
     });
     watch([path.watch.img], function (event, cb) {
         gulp.start('image:build');
+    });
+    watch([path.watch.json], function (event, cb) {
+        gulp.start('json:build');
     });
     watch([path.watch.js], function (event, cb) {
         gulp.start('js:build');
