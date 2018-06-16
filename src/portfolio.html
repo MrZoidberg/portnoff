@@ -48,7 +48,7 @@
                                             <a :href="item.href" :title="item.linkTitle">
                                                 <div class="pg-img-wrapper">
                                                     <span class="icon-circle">
-                                                        <span class="pg-icon smallslider-icon"></span>
+                                                        <span class="pg-icon" :class="item.dataType + '-icon'"></span>
                                                     </span>
                                                     <img :src="item.image" :alt="item.imgAlt" />
                                                 </div>

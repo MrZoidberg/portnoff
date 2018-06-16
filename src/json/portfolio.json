@@ -15,7 +15,7 @@
     "image": "http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/shutterstock_168848894-tall-580x366.jpg",
     "href": "http://pexetothemes.com/demos/story_wp/portfolio/sound-essential/",
     "dataDefWidth": "390",
-    "dataType": "smallslider",
+    "dataType": "lightbox",
     "dataItemId": "1556",
     "imgAlt": "some alt"
   },
@@ -25,7 +25,7 @@
     "image": "http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/shutterstock_168848894-tall-580x366.jpg",
     "href": "http://pexetothemes.com/demos/story_wp/portfolio/sound-essential/",
     "dataDefWidth": "390",
-    "dataType": "smallslider",
+    "dataType": "custom",
     "dataItemId": "1556",
     "imgAlt": "some alt"
   },
@@ -35,7 +35,7 @@
     "image": "http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/shutterstock_168848894-tall-580x366.jpg",
     "href": "http://pexetothemes.com/demos/story_wp/portfolio/sound-essential/",
     "dataDefWidth": "390",
-    "dataType": "smallslider",
+    "dataType": "custom",
     "dataItemId": "1556",
     "imgAlt": "some alt"
   },
@@ -45,7 +45,7 @@
     "image": "http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/shutterstock_168848894-tall-580x366.jpg",
     "href": "http://pexetothemes.com/demos/story_wp/portfolio/sound-essential/",
     "dataDefWidth": "390",
-    "dataType": "smallslider",
+    "dataType": "smallvideo",
     "dataItemId": "1556",
     "imgAlt": "some alt"
   }
