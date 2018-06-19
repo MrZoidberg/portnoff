@@ -81,6 +81,7 @@ gulp.task('html:build', function () {
     gulp.src(path.src.html)
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html))
+        .pipe(gtag({uid: 'UA-12345678-1'}))
         .pipe(reload({stream: true}));
 });
 
@@ -132,7 +133,11 @@ gulp.task('fonts:build', function () {
 gulp.task('image:build', function () {
     gulp.src(path.src.img)
         .pipe(changed(path.build.img))
-        .pipe(imagemin())
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            interlaced: true
+        }))
         .pipe(gulp.dest(path.build.img))
         .pipe(size({title: 'img'}))
         .pipe(reload({stream: true}));
