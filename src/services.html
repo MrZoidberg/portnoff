@@ -36,166 +36,38 @@
                     </div>
                 </div>
                 <!-- above gallery navigation bar end -->
-                <div class="content-boxed">
-                    <!-- portfolio gallery begin -->
+                <div class="content-boxed" id="block-change">
+                    <!-- services gallery begin -->
                     <div id="portfolio-gallery" class="pg-spacing pg-effect-icon pg-effect-zoom pg-effect-overlay">
                         <div class="pg-items-wrapper">
                             <div class="pg-items">
                                 <div class="pg-page-wrapper">
-                                    <div class="pg-item" data-defwidth="390" data-type="smallslider" data-itemid="1556">
-                                        <a href="http://pexetothemes.com/demos/story_wp/portfolio/sound-essential/" title="Sound Essential ">
+
+                                    <!-- services dynamic content begin -->
+                                    <div v-for="item in items" class="pg-item" :data-defwidth="item.dataDefWidth" :data-type="item.dataType" :data-itemid="item.dataItemId">
+                                        <a :href="item.href" :title="item.linkTitle">
                                             <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon smallslider-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/shutterstock_168848894-tall-580x366.jpg" alt=""/>
+                                                            <span class="icon-circle">
+                                                                <span class="pg-icon" :class="item.dataType + '-icon'"></span>
+                                                            </span>
+                                                <img :src="item.image" :alt="item.imgAlt" />
                                             </div>
                                             <div class="pg-info">
                                                 <div class="pg-details">
-                                                    <h2>Sound Essential </h2>
-                                                    <span class="pg-categories">Photography</span>
+                                                    <h2>{{item.name}} </h2>
+                                                    <span class="pg-categories">{{item.category}}</span>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="smallslider" data-itemid="106">
-                                        <a href="http://pexetothemes.com/demos/story_wp/portfolio/vinyl-album-record/" title="Vinyl Album Record">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon smallslider-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/Vinyl-Record-PSD-MockUp-nv-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Vinyl Album Record</h2>
-                                                    <span class="pg-categories">Branding / Illustration</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="lightbox" data-itemid="1554">
-                                        <a href="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/smile-tall.jpg" title="Street Photography" data-rel="pglightbox[group]">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon lightbox-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/smile-tall-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Street Photography</h2>
-                                                    <span class="pg-categories">Mixed items / Photography</span>
-                                                </div>
-                                            </div>
-                                        </a></div>
-                                    <div class="pg-item" data-defwidth="390" data-type="lightbox" data-itemid="110">
-                                        <a href="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/Business-Card-nv.jpg" title="Business Cards Design" data-rel="pglightbox[group]">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon lightbox-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/Business-Card-nv-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Business Cards Design</h2>
-                                                    <span class="pg-categories">Branding / Design</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="smallslider" data-itemid="122">
-                                        <a href="http://pexetothemes.com/demos/story_wp/portfolio/on-the-street/" title="On The Street">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon smallslider-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/2947294095_992a7fd836_o-copy1-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>On The Street</h2>
-                                                    <span class="pg-categories">Photography</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="smallslider" data-itemid="116">
-                                        <a href="http://pexetothemes.com/demos/story_wp/portfolio/branding-identity/" title="Branding Identity">
-                                            <div class="pg-img-wrapper"><span class="icon-circle">
-                                                <span class="pg-icon smallslider-icon"></span>
-                                            </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/Branding-Identity-nv-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Branding Identity</h2>
-                                                    <span class="pg-categories">Branding / Photography</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="smallvideo" data-itemid="1999">
-                                        <a href="http://pexetothemes.com/demos/story_wp/portfolio/video-item/" title="Video Item">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon smallvideo-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/nab-nv-small-580x366.jpg" alt="Video Item"/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Video Item</h2>
-                                                    <span class="pg-categories">Branding / Design</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="custom" data-itemid="102">
-                                        <a href="http://pexetothemes.com/demos/story_wp/blog/" title="Custom Link Item">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon custom-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/Versatile-Bottle-nv-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Custom Link Item</h2>
-                                                    <span class="pg-categories">Branding</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="pg-item" data-defwidth="390" data-type="lightbox" data-itemid="93">
-                                        <a href="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/T-Shirt-MockUp-PSD-nv.jpg" title="Just Ride" data-rel="pglightbox[group]">
-                                            <div class="pg-img-wrapper">
-                                                <span class="icon-circle">
-                                                    <span class="pg-icon lightbox-icon"></span>
-                                                </span>
-                                                <img src="http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/T-Shirt-MockUp-PSD-nv-580x366.jpg" alt=""/>
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>Just Ride</h2>
-                                                    <span class="pg-categories">Illustration / Photography</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    <!-- services dynamic content end -->
+
                                 </div>
                                 <div class="clear"></div>
                             </div>
-                            <div class="pg-pagination">
-                                <ul>
-                                    <li><a href="http://pexetothemes.com/demos/story_wp/gallery/?set=1" data-page="1" class="current">1</a></li>
-                                    <li><a href="http://pexetothemes.com/demos/story_wp/gallery/?set=2" data-page="2">2</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
-                    <!-- portfolio gallery end -->
+                    <!-- services gallery end -->
                 </div>
             </div> <!-- end main content holder (#content/#full-width) -->
             <div class="clear"></div>
@@ -213,10 +85,40 @@
 //= template/foot.html
 <script src='js/masonry.js'></script>
 <script src='js/portfolio-gallery.js'></script>
-<script>var PEXETO = PEXETO || {};PEXETO.ajaxurl="http://pexetothemes.com/demos/story_wp/wp-admin/admin-ajax.php";PEXETO.lightboxOptions = {"theme":"pp_default","animation_speed":"normal","overlay_gallery":false,"allow_resize":true};PEXETO.disableRightClick=false;PEXETO.stickyHeader=true;jQuery(document).ready(function($){
-    PEXETO.init.initSite();PEXETO.woocommerce.init(true);$("#portfolio-gallery").pexetoGallery({"itemsPerPage":"9","ajaxUrl":"http:\/\/pexetothemes.com\/demos\/story_wp\/wp-admin\/admin-ajax.php","currentPage":1,"imgheight":"240","columns":3,"filterCats":["5","6","7","8"],"filterType":"include","parentSel":"#full-width","currentCat":"-1","pageUrl":"http:\/\/pexetothemes.com\/demos\/story_wp\/gallery\/","currentClass":"current","itemsMap":[1556,106,122,116,1999,87,121,78],"orderby":"menu_order","order":"ASC","enableAJAX":true,"categoryFilter":true,"masonry":false,"relatedLightbox":false});$(".pexeto-contact-form").each(function(){
-        $(this).pexetoContactForm({"wrongCaptchaText":"Failed to verify that you are not a robot. Please check the checkbox below.","failText":"An error occurred. Message not sent.","validationErrorText":"Please complete all the fields correctly","messageSentText":"Message sent","captcha":true});
-    });});</script>
+<script src='js/vue.render.js'></script>
+<script>var PEXETO = PEXETO || {};
+PEXETO.ajaxurl = "http://pexetothemes.com/demos/story_wp/wp-admin/admin-ajax.php";
+PEXETO.lightboxOptions = {"theme": "pp_default", "animation_speed": "normal", "overlay_gallery": false, "allow_resize": true};
+PEXETO.disableRightClick = false;
+PEXETO.stickyHeader = true;
+jQuery(document).ready(function ($) {
+    PEXETO.init.initSite();
+    PEXETO.woocommerce.init(true);
+    vueRender.genView("#block-change", "/json/services.json", function () {
+        $("#portfolio-gallery").pexetoGallery({
+            "itemsPerPage": "9",
+            "ajaxUrl": "http:\/\/pexetothemes.com\/demos\/story_wp\/wp-admin\/admin-ajax.php",
+            "currentPage": 1,
+            "imgheight": "240",
+            "columns": 3,
+            "filterCats": ["5", "6", "7", "8"],
+            "filterType": "include",
+            "parentSel": "#full-width",
+            "currentCat": "-1",
+            "pageUrl": "http:\/\/pexetothemes.com\/demos\/story_wp\/gallery\/",
+            "currentClass": "current",
+            "itemsMap": [1556, 106, 122, 116, 1999, 87, 121, 78],
+            "orderby": "menu_order",
+            "order": "ASC",
+            "enableAJAX": true,
+            "categoryFilter": true,
+            "masonry": false,
+            "relatedLightbox": false});
+        $(".pexeto-contact-form").each(function () {
+            $(this).pexetoContactForm({"wrongCaptchaText": "Failed to verify that you are not a robot. Please check the checkbox below.", "failText": "An error occurred. Message not sent.", "validationErrorText": "Please complete all the fields correctly", "messageSentText": "Message sent", "captcha": true});
+        });
+    });
+});</script>
 <!-- section with common javascript files insertion end -->
 </body>
 </html>
