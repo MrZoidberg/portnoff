@@ -3,13 +3,15 @@
 <head>
     <!-- page head section with css files insertion begin -->
     //= template/head.html
+    //= template/favicon.html
+    //= template/json-ld.html
     <!-- page head section with css files insertion end -->
 </head>
 <body class="page-template page-template-template-portfolio-gallery page-template-template-portfolio-gallery-php page page-id-81 fixed-header no-slider icons-style-light large-header parallax-header">
 <div id="main-container">
     <div class="page-wrapper">
         <div class="header-wrapper" style="background-color: rgb(4, 94, 110); padding-top: 84px;">
-            <div class="full-bg-image" style="background-image:url(http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/skyline-blue.jpg); opacity:0.1; filter: alpha(opacity=10);"></div>
+            <div class="full-bg-image" style="background-image:url(images/big_bg5.jpg); opacity:0.1; filter: alpha(opacity=10);"></div>
             <!-- header menu begin -->
             //= template/header.html
             <!-- header menu end -->
@@ -18,7 +20,7 @@
                 <div class="page-title">
                     <div class="content-boxed">
                         <h1>Услуги</h1>
-                        <span class="page-subtitle">sharp modern clear</span>
+                        <span class="page-subtitle"> Позвольте себе отдохнуть, пока мы поработаем!</span>
                     </div>
                 </div>
             </div>
@@ -27,50 +29,350 @@
         <!-- main content begin -->
         <div id="content-container" class=" layout-full">
             <div id="full-width" class="content">
-                <!-- above gallery navigation bar begin -->
-                <div class="pg-navigation">
-                    <div class="pg-nav-wrapper content-boxed">
-                        <div class="pg-cat-filter">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-                <!-- above gallery navigation bar end -->
-                <div class="content-boxed" id="block-change">
-                    <!-- services gallery begin -->
-                    <div id="portfolio-gallery" class="pg-spacing pg-effect-icon pg-effect-zoom pg-effect-overlay">
-                        <div class="pg-items-wrapper">
-                            <div class="pg-items">
-                                <div class="pg-page-wrapper">
-
-                                    <!-- services dynamic content begin -->
-                                    <div v-for="item in items" class="pg-item" :data-defwidth="item.dataDefWidth" :data-type="item.dataType" :data-itemid="item.dataItemId">
-                                        <a :href="item.href" :title="item.linkTitle">
-                                            <div class="pg-img-wrapper">
-                                                            <span class="icon-circle">
-                                                                <span class="pg-icon" :class="item.dataType + '-icon'"></span>
-                                                            </span>
-                                                <img :src="item.image" :alt="item.imgAlt" />
-                                            </div>
-                                            <div class="pg-info">
-                                                <div class="pg-details">
-                                                    <h2>{{item.name}} </h2>
-                                                    <span class="pg-categories">{{item.category}}</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <!-- services dynamic content end -->
-
-                                </div>
-                                <div class="clear"></div>
+                    <!-- above gallery navigation bar begin -->
+                    <div class="pg-navigation">
+                        <div class="pg-nav-wrapper content-boxed">
+                            <div class="pg-cat-filter">
+                                &nbsp;
                             </div>
                         </div>
                     </div>
-                    <!-- services gallery end -->
+                    <!-- above gallery navigation bar end -->
+                    <div id="block-change" class="content-boxed">
+                        <div id="portfolio-gallery" class="pg-spacing pg-effect-icon pg-effect-zoom pg-effect-overlay">
+                            <div class="pg-items-wrapper">
+                                <div class="pg-items">
+                                    <div class="pg-page-wrapper" style="width: 1208px;">
+                                        <div data-defwidth="390" data-type="custom" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">                                                   
+                                                    <img src="images/services/dress.jpg" alt="dress"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Платья от повседневных до вечерних</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallvideo" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/coat.jpg" alt="coat" style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Пальто</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/bathrobe.jpg" alt="bathrobe"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Домашная одежда, халаты</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="lightbox" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/home_textile.jpg" alt="home textile"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Домашний текстиль</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="lightbox" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Гардины и шторы</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="custom" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Карнавальные костюмы</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="custom" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Танцевальные костюмы</h2>
+                                                        <span class="pg-categories">услуги индивидуального пошива</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="custom" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Укоротить или удлинить низ брюк, юбки, платья</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Укоротить/ удлинить рукав</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Ушить брюки, джинсы в поясе, убрать клеш</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Ушить юбку, платье</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Расточать вещь которая вам тесна</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Уменьшение размера курток, пуховиков, пальто</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Замена молний в юбке, платье, брюках</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Замена молний в куртке, пальто</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Замена крючков в шубе</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Штопка джинсов</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Ремонт кожаных изделий</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Ремонт меховых изделий</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Замена подкладки, карманов</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Вышивка бисером, поклейка страз</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Пришив пуговиц, установка пуговиц на джинсы</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div data-defwidth="390" data-type="smallslider" data-itemid="1556" class="pg-item" style="opacity: 1; width: 390px; height: auto; top: 0px;">
+                                            <a href="">
+                                                <div class="pg-img-wrapper">
+                                                    <img src="images/services/general.jpg" alt="some alt"
+                                                        style="opacity: 1;">
+                                                </div>
+                                                <div class="pg-info">
+                                                    <div class="pg-details">
+                                                        <h2>Утюжка рубашек, брюк, платьев, пиджаков, пальто</h2>
+                                                        <span class="pg-categories">услуги ремонта одежды</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> <!-- end main content holder (#content/#full-width) -->
-            <div class="clear"></div>
+                <!-- end main content holder (#content/#full-width) -->
+                <div class="clear"></div>
         </div>
         <!-- main content end -->
     </div>
@@ -86,6 +388,7 @@
 <script src='js/masonry.js'></script>
 <script src='js/portfolio-gallery.js'></script>
 <script src='js/vue.render.js'></script>
+
 <script>var PEXETO = PEXETO || {};
 PEXETO.ajaxurl = "http://pexetothemes.com/demos/story_wp/wp-admin/admin-ajax.php";
 PEXETO.lightboxOptions = {"theme": "pp_default", "animation_speed": "normal", "overlay_gallery": false, "allow_resize": true};
@@ -119,6 +422,7 @@ jQuery(document).ready(function ($) {
         });
     });
 });</script>
+
 <!-- section with common javascript files insertion end -->
 </body>
 </html>

@@ -3,13 +3,15 @@
 <head>
     <!-- page head section with css files insertion begin -->
     //= template/head.html
+    //= template/favicon.html
+    //= template/json-ld.html
     <!-- page head section with css files insertion end -->
 </head>
 <body class="page-template page-template-template-portfolio-gallery page-template-template-portfolio-gallery-php page page-id-81 fixed-header no-slider icons-style-light large-header parallax-header">
     <div id="main-container">
         <div class="page-wrapper">
             <div class="header-wrapper" style="background-color: rgb(4, 94, 110); padding-top: 84px;">
-                <div class="full-bg-image" style="background-image:url(http://pexetothemes.com/demos/story_wp/wp-content/uploads/2014/05/skyline-blue.jpg); opacity:0.1; filter: alpha(opacity=10);"></div>
+                <div class="full-bg-image" style="background-image:url(images/big_bg5.jpg); opacity:0.1; filter: alpha(opacity=10);"></div>
                 <!-- header menu begin -->
                 //= template/header.html
                 <!-- header menu end -->
@@ -18,7 +20,7 @@
                     <div class="page-title">
                         <div class="content-boxed">
                             <h1>Портфолио</h1>
-                            <span class="page-subtitle">sharp modern clear</span>
+                            <span class="page-subtitle">Наши работы</span>
                         </div>
                     </div>
                 </div>
@@ -86,7 +88,20 @@
     <script src='js/masonry.js'></script>
     <script src='js/portfolio-gallery.js'></script>
     <script src='js/vue.render.js'></script>
-    <script>
+    <script type="text/javascript" src="js/instafeed.min.js"></script>
+    <script type="text/javascript">
+        var feed = new Instafeed({
+            get: 'user',
+            userId: '4112330147',
+            sortBy: 'most-recent',
+            clientId: '7a8dbf4a9be94b71b7f74196641c87b7',
+            template: '<a href="{{link}}"><img src="{{image}}" /></a>',
+
+        });
+        feed.run();
+    </script>
+    <!--
+    <script>        
         var PEXETO = PEXETO || {};
         PEXETO.ajaxurl = "http://pexetothemes.com/demos/story_wp/wp-admin/admin-ajax.php";
         PEXETO.lightboxOptions = {
@@ -133,6 +148,7 @@
             });
         });
     </script>
+    -->
     <!-- section with common javascript files insertion end -->
 </body>
 </html>

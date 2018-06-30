@@ -19,7 +19,8 @@ var gulp = require('gulp'),
     robots = require('gulp-robots'),
     gtag = require('gulp-gtag'),
     minify = require('gulp-minify'),
-    imagemin = require('gulp-imagemin');
+    imagemin = require('gulp-imagemin'),
+    instagram = require('instagram-node-lib');
 
 var path = {
     build: {
@@ -63,6 +64,9 @@ var path = {
     }
 };
 
+instagram.set('client_id', '7a8dbf4a9be94b71b7f74196641c87b7');
+instagram.set('client_secret', '8e33613557214694bf85b3b15a8db331 ');
+
 var config = {
     server: {
         baseDir: "./build"
@@ -70,7 +74,8 @@ var config = {
     tunnel: false,
     host: 'localhost',
     port: 9000,
-    logPrefix: "andriyanov_dmitriy"
+    logPrefix: "andriyanov_dmitriy",
+    instagram_user: 4112330147
 };
 
 gulp.task('webserver', function () {
@@ -78,6 +83,9 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('html:build', function () {
+    //TODO:
+    //console.log(instagram.users.recent({ user_id: config.instagram_user }));
+
     gulp.src(path.src.html)
         .pipe(rigger())
         .pipe(gulp.dest(path.build.html))
