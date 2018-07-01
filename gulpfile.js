@@ -229,7 +229,7 @@ gulp.task('robots:build', function (done) {
     done();
 });
 
-var build = gulp.series([
+var build = gulp.series(
     'favicon:build',
     'html:build',
     'style:build',
@@ -244,7 +244,7 @@ var build = gulp.series([
         // task code here
         done();
     }
-]);
+);
 gulp.task('build', build);
 
 
