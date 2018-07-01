@@ -44,7 +44,7 @@ var path = {
         css: 'src/style/libs/*.css',
         less: 'src/style/less/*.less',
         fonts: 'src/fonts/*.*',
-        img: 'src/images/**',
+        img: 'src/images/**/*.{png,jpg}',
         json: 'src/json/*.json',
         js: 'src/js/*.js',
         htaccess: 'src/.htaccess',
@@ -82,7 +82,7 @@ gulp.task('webserver', function () {
     browserSync(config);
 });
 
-gulp.task('html:build', function () {
+gulp.task('html:build', function (done) {
     //TODO:
     //console.log(instagram.users.recent({ user_id: config.instagram_user }));
 
@@ -91,9 +91,10 @@ gulp.task('html:build', function () {
         .pipe(gulp.dest(path.build.html))
         .pipe(gtag({uid: 'UA-12345678-1'}))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('style:build', function () {
+gulp.task('style:build', function (done) {
     gulp.src(path.src.style)
         .pipe(plumber({
             errorHandler: function (error) {
@@ -113,9 +114,10 @@ gulp.task('style:build', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('less:build', function () {
+gulp.task('less:build', function (done) {
     gulp.src(path.src.less)
         .pipe(plumber({
             errorHandler: function (error) {
@@ -130,15 +132,17 @@ gulp.task('less:build', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.less))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('fonts:build', function () {
+gulp.task('fonts:build', function (done) {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('image:build', function () {
+gulp.task('image:build', function (done) {
     gulp.src(path.src.img)
         .pipe(changed(path.build.img))
         .pipe(imagemin({
@@ -149,15 +153,17 @@ gulp.task('image:build', function () {
         .pipe(gulp.dest(path.build.img))
         .pipe(size({title: 'img'}))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('json:build', function () {
+gulp.task('json:build', function (done) {
     gulp.src(path.src.json)
         .pipe(gulp.dest(path.build.json))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('js:build', function () {
+gulp.task('js:build', function (done) {
     gulp.src(path.src.js)
         .pipe(rigger())
         .pipe(sourcemaps.init())
@@ -172,9 +178,10 @@ gulp.task('js:build', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('css:build', function () {
+gulp.task('css:build', function (done) {
     gulp.src(path.src.css)
         .pipe(sourcemaps.init())
         .pipe(prefixer())
@@ -182,14 +189,16 @@ gulp.task('css:build', function () {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
+    done();
 });
 
-gulp.task('htaccess:build', function () {
+gulp.task('htaccess:build', function (done) {
     gulp.src(path.src.htaccess)
-        .pipe(gulp.dest(path.build.htaccess))
+        .pipe(gulp.dest(path.build.htaccess));
+    done();
 });
 
-gulp.task("favicon:build", function () {
+gulp.task("favicon:build", function (done) {
     gulp.src(path.src.favicon).pipe(favicons({
         appName: "Portnof",
         appDescription: "Ателье Portnof",
@@ -207,18 +216,20 @@ gulp.task("favicon:build", function () {
         replace: false
     }))
     .on("error", gutil.log)
-    .pipe(gulp.dest("build"))
+    .pipe(gulp.dest("build"));
+    done();
 });
 
-gulp.task('robots:build', function () {
+gulp.task('robots:build', function (done) {
     gulp.src(path.src.index)
         .pipe(robots({
             useragent: '*'
         }))
         .pipe(gulp.dest(path.build.robots));
+    done();
 });
 
-gulp.task('build', [
+var build = gulp.series([
     'favicon:build',
     'html:build',
     'style:build',
@@ -229,8 +240,12 @@ gulp.task('build', [
     'json:build',
     'js:build',
     'htaccess:build',
-    'robots:build'
+    'robots:build', function(done) {    
+        // task code here
+        done();
+    }
 ]);
+gulp.task('build', build);
 
 
 gulp.task('watch', function () {
@@ -266,5 +281,5 @@ gulp.task('watch', function () {
     });
 });
 
-
-gulp.task('default', ['build', 'webserver', 'watch']);
+var def = gulp.series(['build', 'webserver', 'watch']);
+gulp.task('default', def);
