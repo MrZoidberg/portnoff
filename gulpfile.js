@@ -20,7 +20,8 @@ var gulp = require('gulp'),
     gtag = require('gulp-gtag'),
     minify = require('gulp-minify'),
     imagemin = require('gulp-imagemin'),
-    instagram = require('instagram-node-lib');
+    instagram = require('instagram-node-lib'),
+    del = require('del');
 
 var path = {
     build: {
@@ -35,7 +36,8 @@ var path = {
         js: 'build/js/',
         htaccess: 'build/',
         favicon: 'build/',
-        robots: 'build/'
+        robots: 'build/',
+        all: 'build/**/*'
     },
     src: {
         html: 'src/*.html',
@@ -77,6 +79,11 @@ var config = {
     logPrefix: "andriyanov_dmitriy",
     instagram_user: 4112330147
 };
+
+gulp.task('clean', function () {
+    return del(path.build.all);
+  });
+  
 
 gulp.task('webserver', function () {
     browserSync(config);
@@ -230,6 +237,7 @@ gulp.task('robots:build', function (done) {
 });
 
 var build = gulp.series(
+    'clean',
     'favicon:build',
     'html:build',
     'style:build',
@@ -240,10 +248,7 @@ var build = gulp.series(
     'json:build',
     'js:build',
     'htaccess:build',
-    'robots:build', function(done) {    
-        // task code here
-        done();
-    }
+    'robots:build'
 );
 gulp.task('build', build);
 
@@ -281,5 +286,4 @@ gulp.task('watch', function () {
     });
 });
 
-var def = gulp.series(['build', 'webserver', 'watch']);
-gulp.task('default', def);
+gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));

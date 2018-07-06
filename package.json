@@ -29,6 +29,7 @@
     "jquery-migrate": "^3.0.1"
   },
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-changed": "^1.2.1",
     "gulp-cssmin": "^0.2.0",
