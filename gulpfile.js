@@ -20,8 +20,7 @@ var gulp = require('gulp'),
     gtag = require('gulp-gtag'),
     minify = require('gulp-minify'),
     imagemin = require('gulp-imagemin'),
-    instagram = require('instagram-node-lib'),
-    del = require('del');
+    instagram = require('instagram-node-lib');
 
 var path = {
     build: {
@@ -36,8 +35,7 @@ var path = {
         js: 'build/js/',
         htaccess: 'build/',
         favicon: 'build/',
-        robots: 'build/',
-        all: 'build/**/*'
+        robots: 'build/'
     },
     src: {
         html: 'src/*.html',
@@ -46,7 +44,7 @@ var path = {
         css: 'src/style/libs/*.css',
         less: 'src/style/less/*.less',
         fonts: 'src/fonts/*.*',
-        img: 'src/images/**/*.{png,jpg}',
+        img: 'src/images/**',
         json: 'src/json/*.json',
         js: 'src/js/*.js',
         htaccess: 'src/.htaccess',
@@ -80,16 +78,11 @@ var config = {
     instagram_user: 4112330147
 };
 
-gulp.task('clean', function () {
-    return del(path.build.all);
-  });
-  
-
 gulp.task('webserver', function () {
     browserSync(config);
 });
 
-gulp.task('html:build', function (done) {
+gulp.task('html:build', function () {
     //TODO:
     //console.log(instagram.users.recent({ user_id: config.instagram_user }));
 
@@ -98,10 +91,9 @@ gulp.task('html:build', function (done) {
         .pipe(gulp.dest(path.build.html))
         .pipe(gtag({uid: 'UA-12345678-1'}))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('style:build', function (done) {
+gulp.task('style:build', function () {
     gulp.src(path.src.style)
         .pipe(plumber({
             errorHandler: function (error) {
@@ -121,10 +113,9 @@ gulp.task('style:build', function (done) {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('less:build', function (done) {
+gulp.task('less:build', function () {
     gulp.src(path.src.less)
         .pipe(plumber({
             errorHandler: function (error) {
@@ -139,17 +130,15 @@ gulp.task('less:build', function (done) {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.less))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('fonts:build', function (done) {
+gulp.task('fonts:build', function () {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('image:build', function (done) {
+gulp.task('image:build', function () {
     gulp.src(path.src.img)
         .pipe(changed(path.build.img))
         .pipe(imagemin({
@@ -160,17 +149,15 @@ gulp.task('image:build', function (done) {
         .pipe(gulp.dest(path.build.img))
         .pipe(size({title: 'img'}))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('json:build', function (done) {
+gulp.task('json:build', function () {
     gulp.src(path.src.json)
         .pipe(gulp.dest(path.build.json))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('js:build', function (done) {
+gulp.task('js:build', function () {
     gulp.src(path.src.js)
         .pipe(rigger())
         .pipe(sourcemaps.init())
@@ -185,10 +172,9 @@ gulp.task('js:build', function (done) {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('css:build', function (done) {
+gulp.task('css:build', function () {
     gulp.src(path.src.css)
         .pipe(sourcemaps.init())
         .pipe(prefixer())
@@ -196,16 +182,14 @@ gulp.task('css:build', function (done) {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
-    done();
 });
 
-gulp.task('htaccess:build', function (done) {
+gulp.task('htaccess:build', function () {
     gulp.src(path.src.htaccess)
-        .pipe(gulp.dest(path.build.htaccess));
-    done();
+        .pipe(gulp.dest(path.build.htaccess))
 });
 
-gulp.task("favicon:build", function (done) {
+gulp.task("favicon:build", function () {
     gulp.src(path.src.favicon).pipe(favicons({
         appName: "Portnof",
         appDescription: "Ателье Portnof",
@@ -223,21 +207,18 @@ gulp.task("favicon:build", function (done) {
         replace: false
     }))
     .on("error", gutil.log)
-    .pipe(gulp.dest("build"));
-    done();
+    .pipe(gulp.dest("build"))
 });
 
-gulp.task('robots:build', function (done) {
+gulp.task('robots:build', function () {
     gulp.src(path.src.index)
         .pipe(robots({
             useragent: '*'
         }))
         .pipe(gulp.dest(path.build.robots));
-    done();
 });
 
-var build = gulp.series(
-    'clean',
+gulp.task('build', [
     'favicon:build',
     'html:build',
     'style:build',
@@ -249,8 +230,7 @@ var build = gulp.series(
     'js:build',
     'htaccess:build',
     'robots:build'
-);
-gulp.task('build', build);
+]);
 
 
 gulp.task('watch', function () {
@@ -286,4 +266,5 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('default', gulp.series('build', gulp.parallel('webserver', 'watch')));
+
+gulp.task('default', ['build', 'webserver', 'watch']);
