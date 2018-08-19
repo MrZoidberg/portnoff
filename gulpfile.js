@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     favicons = require("favicons").stream,
     gutil = require("gulp-util"),
     robots = require('gulp-robots'),
+    ga = require('gulp-ga'),
     gtag = require('gulp-gtag'),
     minify = require('gulp-minify'),
     imagemin = require('gulp-imagemin'),
@@ -88,8 +89,9 @@ gulp.task('html:build', function () {
 
     gulp.src(path.src.html)
         .pipe(rigger())
+        .pipe(ga({url: 'portnof.com.ua', uid: 'UA-88566901-1'}))
+        .pipe(gtag({uid: 'UA-88566901-1'}))
         .pipe(gulp.dest(path.build.html))
-        .pipe(gtag({uid: 'UA-12345678-1'}))
         .pipe(reload({stream: true}));
 });
 
