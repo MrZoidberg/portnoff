@@ -21,7 +21,8 @@ var gulp = require('gulp'),
     gtag = require('gulp-gtag'),
     minify = require('gulp-minify'),
     imagemin = require('gulp-imagemin'),
-    instagram = require('instagram-node-lib');
+    instagram = require('instagram-node-lib'),
+    purify = require('gulp-purifycss');
 
 var path = {
     build: {
@@ -178,8 +179,9 @@ gulp.task('js:build', function () {
 
 gulp.task('css:build', function () {
     gulp.src(path.src.css)
-        .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())        
         .pipe(prefixer())
+        .pipe(purify([path.src.js, path.src.html]))
         .pipe(cssmin())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
