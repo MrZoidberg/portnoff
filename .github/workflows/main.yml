@@ -13,6 +13,9 @@ jobs:
     - name: Setup gulp
       shell: bash
       run: npm install -g gulp
+    - name: Install npm packages
+      shell: bash
+      run: npm install
     - name: Build
       shell: bash
       run: gulp build
