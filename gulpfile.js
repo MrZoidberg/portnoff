@@ -222,7 +222,7 @@ gulp.task('robots:build', function () {
         .pipe(gulp.dest(path.build.robots));
 });
 
-gulp.task('build', [
+gulp.task('build', gulp.series(
     'favicon:build',
     'html:build',
     'style:build',
@@ -234,7 +234,7 @@ gulp.task('build', [
     'js:build',
     'htaccess:build',
     'robots:build'
-]);
+));
 
 
 gulp.task('watch', function () {
@@ -271,4 +271,4 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['build', 'webserver', 'watch']);
+gulp.task('default', gulp.series('build', 'webserver', 'watch'));
